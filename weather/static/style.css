@@ -1,29 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="{% static 'weather/style.css' %}">
-</head>
-<body>
-    <div class="container">
-        <h1>Weather App</h1>
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Add City</button>
-        </form>
-        <div class="weather-container">
-            {% for weather in weather_data %}
-            <div class="weather-box">
-                <h2>{{ weather.city }}</h2>
-                <p>{{ weather.temperature }}°C</p>
-                <p>{{ weather.description }}</p>
-                <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Weather icon">
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</body>
-</html>
+body {
+    background-color: #e7e7e7; /* Light gray background */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white; /* White background for the container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+form input, form button {
+    padding: 10px;
+    margin: 0 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.weather-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.weather-box {
+    background-color: white; /* White background for each weather box */
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px;
+}
+
+.weather-box h2 {
+    margin: 0 0 10px;
+}
+
+.weather-box p {
+    margin: 5px 0;
+}
+
+.weather-box img {
+    margin-top: 10px;
+}
