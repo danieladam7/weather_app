@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{% static 'weather/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add City</button>
+        </form>
+        <div class="weather-container">
+            {% for weather in weather_data %}
+            <div class="weather-box">
+                <h2>{{ weather.city }}</h2>
+                <p>{{ weather.temperature }}°C</p>
+                <p>{{ weather.description }}</p>
+                <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Weather icon">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
