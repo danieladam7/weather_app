@@ -1,8 +1,8 @@
 # Weather App
 
-A simple web application built with Django and Python that allows users to check the weather around the world.
+A simple web application built with Django and Python allows users to check the weather worldwide.
 Users can add cities, and the app retrieves and displays the current weather information for each city using the OpenWeather API.
-The app is hosted on AWS - just click and check the weather ☀
+The app is hosted on AWS - click and check the weather ☀
 
 ## Tech Stack 💻
 
@@ -18,9 +18,9 @@ The app is hosted on AWS - just click and check the weather ☀
 
 ## Features 🏆
 
-- Feature 1: Add cities and the app will display the current weather information for each city, including temperature, weather description, and an icon representing the weather conditions
+- Add cities and the app will display the current weather information for each city, including temperature, weather description, and an icon representing the weather conditions
 
-- Feature 2: Delete cities from the list if you no longer wish to see the weather information for those locations
+- Delete cities from the list if you no longer wish to see the weather information for those locations
 
 ## Deployment 🌐
 
