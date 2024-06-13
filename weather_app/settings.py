@@ -1,14 +1,15 @@
 from pathlib import Path
 import os
 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY', 'your_default_secret_key')
 
-DEBUG = os.getenv('DEBUG', 'False')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
-ALLOWED_HOSTS = []  # os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost')
+DEBUG = os.getenv('DEBUG')
+
+ALLOWED_HOSTS = [os.getenv('APP_HOST')]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -17,6 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'weather',
 ]
 
@@ -52,15 +54,10 @@ WSGI_APPLICATION = 'weather_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('DB_ENGINE'),
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USERNAME'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('RDB_HOSTNAME'),
-        'PORT': os.getenv('DB_PORT'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',

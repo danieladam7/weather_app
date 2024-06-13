@@ -2,12 +2,15 @@ from django.shortcuts import render, redirect
 import requests
 from .models import City
 from .forms import CityForm
+import os
 
 
 def index(request):
     cities = City.objects.all()  # return all the cities in the database
 
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}& units=metric&appid=d741efd8f144ddc44aabf41be6f44acc'
+    api_key = os.getenv('OPENWEATHER_API_KEY')
+    url = f'http://api.openweathermap.org/data/2.5/weather?q={{}}&units=metric&appid={
+        api_key}'
 
     if request.method == 'POST':  # only true if form is submitted
         # add actual request data to form for processing
